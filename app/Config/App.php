@@ -110,7 +110,7 @@ class App extends BaseConfig
      *
      * @see https://www.php.net/manual/en/timezones.php for list of timezones supported by PHP.
      */
-    public string $appTimezone = 'UTC';
+    public string $appTimezone = 'America/Sao_Paulo';
 
     /**
      * --------------------------------------------------------------------------
@@ -126,7 +126,7 @@ class App extends BaseConfig
 
     /**
      * --------------------------------------------------------------------------
-     * Force Global Secure Requests
+     * URI PROTOCOL
      * --------------------------------------------------------------------------
      *
      * If true, this will force every request made to this application to be
