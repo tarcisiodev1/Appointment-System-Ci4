@@ -14,11 +14,11 @@ class Schedule extends Entity
         'canceled' => 'boolean',
     ];
 
-    // public function updatedAt(): string
-    // {
+    public function updatedAt(): string
+    {
 
-    //     return Time::parse($this->updated_at)->format('d-m-Y H:i');
-    // }
+        return Time::parse($this->updated_at)->format('d-m-Y H:i');
+    }
 
     public function situation(): string
     {
