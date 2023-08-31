@@ -96,7 +96,7 @@ class UnitAvaiableHoursService
      * @return array
      */
     private function createUnitTimeRange(string $start, string $end,  string $interval, bool $isCurrentDay): array
-    {
+    { // Criar um intervalo de datas usando a classe DatePeriod.
 
         $period = new DatePeriod(
             new Time($start),
@@ -104,29 +104,34 @@ class UnitAvaiableHoursService
             new Time($end)
         );
 
-        // receberá os tempos gerados
+        // receberá os tempos gerados;
+
+        // Array que armazenará os horários gerados.
         $timeRange = [];
 
+        // Hora atual em formato 'HH:mm' para comparação;
         // tempo atual em hh:mm para comparar com a hora e minutos gerados no foreach abaixo
         $now = Time::now()->format('H:i');
-
+        // Iterar sobre o intervalo de datas.
 
         foreach ($period as $instance) {
-
+            // Obter a hora atual do objeto $instance em formato 'HH:mm';
             // recuperamos o tempo no formato 'hh:mm'
             $hour = Time::createFromInstance($instance)->format('H:i');
-
+            // Verificar se estamos considerando o dia atual ou não;
 
             // se não for o dia atual, fazemos o push normal
             if (!$isCurrentDay) {
-
+                // Se não for o dia atual, adicionamos o horário ao array.
                 $timeRange[] = $hour;
             } else {
 
                 // aqui dentro é dia atual, 
                 // verificamos se a hora de início é maior que hora atual.
                 // dessa forma só apresentaremos horários que forem maiores que o horário atual,
-                // ou seja, não apresentamos horas passadas
+                // ou seja, não apresentamos horas passadas;
+                // Se for o dia atual, verificamos se o horário é maior que a hora atual.
+                // Isso evita adicionar horários passados ao array.
 
                 if ($hour > $now) {
 
@@ -137,6 +142,8 @@ class UnitAvaiableHoursService
 
 
         // finalmente retornamos os horários gerados
+        // Retornar o array com os horários gerados.
+
         return $timeRange;
     }
 }
