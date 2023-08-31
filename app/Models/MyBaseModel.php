@@ -38,6 +38,7 @@ class MyBaseModel extends Model
     public function findOrFail(int|string $id): object
     {
 
+
         $row = $this->find($id);
 
         return $row ?? throw new PageNotFoundException("Registro {$id} não encontrado");

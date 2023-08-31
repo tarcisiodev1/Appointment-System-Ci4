@@ -29,7 +29,7 @@ class UnitServiceService extends MyBaseService
 
 
         foreach ($services as $service) {
-
+            // verifica no array se tem o id e se tiver coloca checked e se nao tiver coloca nda '' , e lembrando que o in_array espera um array e se caso existingServicesIds seja null, ?? vai retornar o array vazio
             $checked = in_array($service->id, $existingServicesIds ?? []) ? 'checked' : '';
 
             $checkbox = '<div class="custom-control custom-checkbox">';

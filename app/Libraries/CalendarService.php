@@ -30,28 +30,38 @@ class CalendarService
      *
      * @return string
      */
+    // Método responsável por renderizar o dropdown de seleção de meses
     public function renderMonths(): string
     {
+        // Obtém a data e hora atual
         $today          = Time::now();
+        // Obtém o ano atual
         $currentYear    = $today->getYear();
+        // Obtém o mês atual
         $currentMonth   = $today->getMonth();
 
+        // Inicializa um array vazio para armazenar as opções do dropdown
         $options = [];
+        // Adiciona uma opção padrão para "Escolha"
         $options[null] = '--- Escolha ---';
 
+        // Loop através dos meses do array $months
         foreach (self::$months as $key => $month) {
 
-            // mês atual é maior que '$key' 
+            // Verifica se o mês atual é maior que o valor de '$key'
             if ($currentMonth > $key) {
 
-                // então continuamos para o próximo item do array,
+                // Se o mês atual for maior que o valor de '$key',
+                // continuamos para o próximo mês no loop,
                 // pois não queremos exibir meses passados
                 continue;
             }
 
+            // Adiciona uma opção para o dropdown com o nome do mês e o ano atual
             $options[$key] = "{$month} / {$currentYear}";
         }
 
+        // Retorna o HTML do dropdown de seleção de meses
         return form_dropdown(data: 'month', options: $options, selected: [], extra: ['id' => 'month', 'class' => 'form-select']);
     }
 
