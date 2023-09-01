@@ -19,7 +19,7 @@ class Super extends Seeder
 
             $user = new User([
                 'email'    => 'super@super.com',
-                'username' => 'lucio_super',
+                'username' => 'tarcisio_super',
                 'password' => '12345678',
             ]);
 
