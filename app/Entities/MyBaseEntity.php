@@ -21,7 +21,7 @@ class MyBaseEntity extends Entity
 
     public function status(): string
     {
-
+        //status com return html
         return $this->isActivated() ?
             '<span class="badge badge-primary">Ativo</span>' :
             '<span class="badge badge-danger">Inativo</span>';
