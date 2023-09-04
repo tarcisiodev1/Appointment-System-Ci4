@@ -9,6 +9,7 @@ class Schedule extends Entity
 {
 
     protected $dates   = ['created_at', 'updated_at'];
+    //casts para conversao para manipular dados
     protected $casts   = [
         'finished' => 'boolean',
         'canceled' => 'boolean',
