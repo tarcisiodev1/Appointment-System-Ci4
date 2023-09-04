@@ -16,7 +16,7 @@ class Super extends Seeder
             $this->db->transStart();
 
             $userModel = new UserModel();
-
+            //usuario super
             $user = new User([
                 'email'    => 'super@super.com',
                 'username' => 'tarcisio_super',
