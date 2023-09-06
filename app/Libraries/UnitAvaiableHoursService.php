@@ -60,7 +60,7 @@ class UnitAvaiableHoursService
             $divHours = null;
 
 
-            // recuperamos os agendamentos em aberto da unidade
+            // recuperamos os agendamentos em aberto/cadastrados/registrados da unidade
             $unitSchedules = model(ScheduleModel::class)->getScheduledHoursByDate(unitId: $unit->id, dateWanted: $dateWanted);
 
 
