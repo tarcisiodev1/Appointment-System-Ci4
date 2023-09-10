@@ -134,7 +134,7 @@ class ScheduleService
              */
             Events::trigger('schedule_created', auth()->user()->email, $model->getSchedule(id: $createdId));
 
-            // retornamos true
+            // retornamos true para debug
             return true;
         } catch (\Throwable $th) {
 
